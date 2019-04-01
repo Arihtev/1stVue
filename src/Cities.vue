@@ -1,5 +1,6 @@
 <template>
     <div>
+      <div>
         <h2>TOP CITIES</h2>
         <v-layout row wrap>
             <v-flex
@@ -32,23 +33,16 @@
               </v-card>
             </v-flex>
           </v-layout>
+      </div>
     </div>
 </template>
 
 <script>
-import input from './input.vue';
 
 export default {
     data(){
         return{
         apiData: undefined,
-        rate: 7.5,
-        countryRatingNumber: undefined,
-        cityRatingNumber: undefined,
-        styleObject: {
-            width:200,
-            rates:0,
-          }
         }
     },
     methods:{
