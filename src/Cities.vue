@@ -1,23 +1,37 @@
 <template>
     <div>
-        <div class="cityContainer">
         <h2>TOP CITIES</h2>
-            <div class="city"  :key="index" v-for="(city,index) in apiData.top_cities" >
-                <div class="cityName" v-if="apiData">
+        <v-layout row wrap>
+            <v-flex
+              xs12
+              sm6
+              md3
+              lg3
+              :key="index" v-for="(city,index) in apiData.top_cities" 
+            >
+              <v-card flat tile>
+                <v-card-title primary-title>
+                  <div>
+                  <div class="cityName" v-if="apiData">
                     {{doMath(index)}}. {{city.name}}      
-                </div>          
-                <img class="share" src="share.png" alt="Image error">
-                <img class="littleStar" src="littlestar.png" alt="Image error">
+                <img class="share" src="assets/share.png" alt="Image error">
+                </div> 
+                <div id="rating">
+                <img class="littleStar" src="assets/littlestar.png" alt="Image error">
                 <p class="cityRating">
                     {{city.star_rating}}
                 </p>
                 <p class="NumberCityRatings">
-                    ({{city.num_ratings}})
+                    ({{stringify(city.num_ratings)}})
                 </p>
-                <img class="cityImage" v-bind:src="city.image" alt="Image error">
-            </div>
-            
-        </div>
+                </div>
+                  </div>
+                </v-card-title>
+                  <v-card-media :src="city.image" height="200px">
+                </v-card-media>
+              </v-card>
+            </v-flex>
+          </v-layout>
     </div>
 </template>
 
@@ -25,9 +39,6 @@
 import input from './input.vue';
 
 export default {
-    components:{
-        'app-input': input
-    },
     data(){
         return{
         apiData: undefined,
@@ -54,15 +65,26 @@ export default {
         },
         doMath: function (index) {
             return index+1
-        },    
+        },
+        stringify: function(input){
+            var value=Number(input);
+            return value.toLocaleString();
+        },
     },
     beforeMount(){
       this.loadApi()
+    },
+    computed:{
+        numrates: function(){
+            return this.$data.apiData.num_ratings.toLocaleString()
+        }
     }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
 * {
     box-sizing: border-box;
   }
@@ -79,6 +101,7 @@ export default {
     float: left;
     width: 25%;
     height: 200px;
+    margin-bottom: 100px;
     /* Should be removed. Only for demonstration */
   }
   /* Clear floats after the columns */
@@ -94,25 +117,28 @@ export default {
   }
   .cityName {      
     margin-top:0px;
-    float: left;
-    margin-left: 50px;
+    margin-left: 20%;
     font-size: 18pt;    
     margin-bottom: 0px;
     text-transform: uppercase;
     font-family: "Oswald",sans-serif;
+    width: 100%;
   }
   .share{
-    float: left;
-    margin-left: 50px;
+    float: right;
+    margin-left: 30px;
     margin-top: 0px;
     margin-bottom: 0px;
     width:30px;
+  }
+  #rating{
+    margin-left:20%;
+    width:100%;
   }
   .littleStar{
     clear: both;
     float: left;
     margin-top: 0px;
-    margin-left: 50px;
     width:25px;
   }
   .cityRating{

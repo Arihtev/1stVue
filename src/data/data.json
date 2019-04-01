@@ -3,14 +3,14 @@
     "flag": "italy_flag.jpg",
     "description": "<ul><li>All Three of Europe’s Active Volcanoes Are Located in Italy</li><li>Pasta Has Been in Use Since the 4th Century BCE</li><li>Pizza Was Invented in Naples</li></ul>Read more about Italy on <a href='https://en.wikipedia.org/wiki/Italy'>Wikipedia</a>",
     "star_rating": 7.5,
-    "num_ratings": 200000,
+    "num_ratings": "200000",
     "country_rating": 5,
     "map_image": "italy_map.png",
     "top_cities": [ 
-        { "name": "Rome", "image": "rome.jpg", "star_rating": 9.1, "num_ratings": "120000" },
-        { "name": "Venice", "image": "venice.jpg", "star_rating": 9.0, "num_ratings": "120000" },
-        { "name": "Florence", "image": "florence.jpg", "star_rating": 8.5, "num_ratings": "120000"  },
-        { "name": "Milan", "image": "milan.jpg", "star_rating": 7.3, "num_ratings": "120000"  }
+        { "name": "Rome", "image": "assets/rome.jpg", "star_rating": 9.1, "num_ratings": "120000" },
+        { "name": "Venice", "image": "assets/venice.jpg", "star_rating": 9.0, "num_ratings": "120000" },
+        { "name": "Florence", "image": "assets/florence.jpg", "star_rating": 8.5, "num_ratings": "120000"  },
+        { "name": "Milan", "image": "assets/milan.jpg", "star_rating": 7.3, "num_ratings": "120000"  }
     ]
 }
 
